@@ -16,7 +16,7 @@ public class Empleados {
 
     private Connection conexion;
 
-    public Empleados() {
+    public Empleados() { //establece la conexion entre java y la base de datos
         try {
             conexion = DriverManager.getConnection("jdbc:mysql://localhost/ejemplo", "ejemplo", "ejemplo");
         } catch (SQLException ex) {
@@ -25,7 +25,7 @@ public class Empleados {
 
     }
 
-    public int Create(Empleado emp) throws SQLException {
+    public int Create(Empleado emp) throws SQLException { //metod crear
         int filas;
         String sql = "INSERT INTO empleados VALUES ( ?, ?, ?, ?, ?, ?, ?,? )";
         PreparedStatement sentencia = conexion.prepareStatement(sql);
@@ -41,7 +41,7 @@ public class Empleados {
         return filas;
     }
 
-    public int Update(Empleado emp) throws SQLException {
+    public int Update(Empleado emp) throws SQLException { // metodo update
         String sql = "UPDATE empleados emp_no = ?, apellido = ?, oficio = ?, dir = ?, fecha_alt = ?, salario = ?, comision = ?, Num_departamento = ?, WHERE emp_no";
         int filas;
         PreparedStatement sentencia = conexion.prepareCall(sql);
@@ -57,20 +57,20 @@ public class Empleados {
         return filas;
     }
 
-    public Empleado Read(int dep_no) {
-        Empleado emp = null;
+   // public Empleado Read(int dep_no) {
+      //  Empleado emp = null;
         
-        return emp;
-    }
+       // return emp;
+   // }
 
-    public void Delete(int dep_no) {
+    //public void Delete(int dep_no) {
 
-    }
+   // }
 
-    public void Close() throws SQLException {
+    public void Close() throws SQLException { //metodo cerrar
         conexion.close();
     }
-     public ArrayList <Empleado> ListarTodosEmp() throws SQLException{
+     public ArrayList <Empleado> ListarTodosEmp() throws SQLException{ //listar todos los empleados
         Empleado emp = new Empleado();
         ArrayList<Empleado> emps = new ArrayList<>();
         String sql = "SELECT * FROM empleados";
@@ -91,7 +91,7 @@ public class Empleados {
         return emps;
     }
 
-     public Empleado ListarUnoEmp (int emp_no) throws SQLException{
+     public Empleado ListarUnoEmp (int emp_no) throws SQLException{ //listar un empleado
        Empleado emp = new Empleado();
        String sql = "Select * from empleados where emp_no = ?";
        PreparedStatement sentencia = conexion.prepareStatement(sql);
@@ -108,7 +108,7 @@ public class Empleados {
        emp.setDept_no(rs.getInt(8));
        return emp;
     }
-     public Empleado BuscarUno (String Apellido) throws SQLException{
+     public Empleado BuscarUno (String Apellido) throws SQLException{ // buscar un empleado
          Empleado emp = new Empleado();
          String sql = "Select * from empleados where apellido = ?";
          PreparedStatement sentencia = conexion.prepareStatement(sql);
@@ -125,7 +125,7 @@ public class Empleados {
         emp.setDept_no(rs.getInt(8));
         return emp;
      }
-     public int CrearEmpleado (Empleado emp) throws SQLException{
+     public int CrearEmpleado (Empleado emp) throws SQLException{ //crear un empleado
         int filas;
         String sql = "INSERT INTO empleados VALUES (?, ?, ?, ?, ?, ?, ?, ? )";
         PreparedStatement sentencia = conexion.prepareStatement(sql);
@@ -140,7 +140,7 @@ public class Empleados {
         filas = sentencia.executeUpdate();
         return filas;
      }
-     public int BorraE(int emp) throws SQLException {
+     public int BorraE(int emp) throws SQLException { //borrar empleados 
         String sql = "DELETE FROM Empleados WHERE dep_nomb=?;";
         int filas;
         PreparedStatement sentencia = conexion.prepareCall(sql);

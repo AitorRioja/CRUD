@@ -4,7 +4,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 
 
-public class Empleado {
+public class Empleado { //atributos getters y setter de la clase empleados
     private int emp_no;
     private String apellido;
     private String oficio;

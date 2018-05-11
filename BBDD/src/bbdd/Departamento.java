@@ -2,7 +2,7 @@ package bbdd;
 
 import java.time.LocalDate;
 
-public class Departamento {
+public class Departamento { // Atributos, getters y setter de la clase departamentos
     private int dept_nombre;
     private String dnombre;
     private String loc;

@@ -14,14 +14,17 @@ import java.util.Scanner;
  * @author Usuario 1 DAM
  */
 public class EmpConsola {
-        public void listado2() throws SQLException {
+        public void listado2() throws SQLException { //metodo para listar los empleados  o varios
         
        Empleados emp = new Empleados();
         Empleado emp1 = new Empleado();
         ArrayList<Empleado> emps = new ArrayList<>();
         
         Scanner sc = new Scanner (System.in);
-        System.out.println("Pulsa 1 para listar todos los empleados o 2 solo para listar de uno en uno");
+            System.out.println("");
+        System.out.println("Pulsa 1 para listar todos los empleados o 2 solo para listar de uno en uno:");
+        System.out.println( "+---------------------------------------------------------------------------------+\n");
+       
         switch (Integer.parseInt(sc.nextLine())){
             case 1:
                 emp.ListarTodosEmp();
@@ -31,49 +34,72 @@ public class EmpConsola {
             }
             break;
             case 2: 
+                System.out.println("Dime el numero del empleado");
+                    System.out.println( "+---------------------------------------------------------------------------------+\n");
+
                 emp1 = emp.ListarUnoEmp(Integer.parseInt(sc.nextLine()));
                 System.out.println(emp1.getEmp_no() + " | "  + emp1.getApellido() + " | " + emp1.getOficio()+ " | " + emp1.getDirector()+ " | " + emp1.getFecha_alta()+ " | " + emp1.getSalario()+ " | " + emp1.getComision()+ " | " + emp1.getDept_no() );
     }
         }
-  public void BuscarEmp() throws SQLException {
+  public void BuscarEmp() throws SQLException { //metodo para buscar empleados
             Empleados emp = new Empleados();
             Empleado emp1;
             Scanner sc = new Scanner(System.in);
-            System.out.println("Dime el nombre del empleado que desea buscar para poder encontrarlo");
+            System.out.println("");
+            System.out.println("Dime el nombre del empleado que desea buscar para poder encontrarlo:");
+                    System.out.println( "+---------------------------------------------------------------------------------+\n");
             emp1 = emp.BuscarUno(sc.nextLine());
             System.out.println(emp1.getEmp_no() + " | "  + emp1.getApellido() + " | " + emp1.getOficio()+ " | " + emp1.getDirector()+ " | " + emp1.getFecha_alta()+ " | " + emp1.getSalario()+ " | " + emp1.getComision()+ " | " + emp1.getDept_no() );
            
                    
         }
-   public void CrearEmpleado() throws SQLException {
+   public void CrearEmpleado() throws SQLException {// metodo para crear empleados
             Empleados emp = new Empleados();
             Empleado emp1 = new Empleado();
             Scanner sc = new Scanner(System.in);
-            System.out.println("Dime el numero de empleado que va a tener el nuevo empleado");
+            System.out.println("");
+            System.out.println("Dime el numero de empleado que va a tener el nuevo empleado:");
+                    System.out.println( "+---------------------------------------------------------------------------------+\n");
             emp1.setEmp_no(Integer.parseInt(sc.nextLine()));
-            System.out.println("Dime el apellido del nuevo empleado ");
+            System.out.println("");
+            System.out.println("Dime el apellido del nuevo empleado: ");
+                    System.out.println( "+---------------------------------------------------------------------------------+\n");
             emp1.setApellido(sc.nextLine());
-            System.out.println("Dime el oficio que va a tener el nuevo empleado");
+            System.out.println("");
+            System.out.println("Dime el oficio que va a tener el nuevo empleado:");
+                    System.out.println( "+---------------------------------------------------------------------------------+\n");
             emp1.setOficio(sc.nextLine());
-            System.out.println("Dime el numero del director que va a tener");
+            System.out.println("");
+            System.out.println("Dime el numero del director que va a tener:");
+                    System.out.println( "+---------------------------------------------------------------------------------+\n");
             emp1.setDirector(Integer.parseInt(sc.nextLine()));
-            System.out.println("Dime la fecha de alta del nuevo empleado");
+            System.out.println("");
+            System.out.println("Dime la fecha de alta del nuevo empleado:");
+                    System.out.println( "+---------------------------------------------------------------------------------+\n");
             java.sql.Date jsqlD = java.sql.Date.valueOf(sc.nextLine());
-            System.out.println("Dime el salario que va a tener el nuevo empleado");
+            System.out.println("");
+            System.out.println("Dime el salario que va a tener el nuevo empleado:");
+                    System.out.println( "+---------------------------------------------------------------------------------+\n");
             emp1.setSalario(Float.parseFloat(sc.nextLine()));
-            System.out.println("Dime la comision que va a cobrar el nuevo empleado");
+            System.out.println("");
+            System.out.println("Dime la comision que va a cobrar el nuevo empleado:");
+                    System.out.println( "+---------------------------------------------------------------------------------+\n");
             emp1.setComision(Float.parseFloat(sc.nextLine()));
-            System.out.println("Dime el numero de departamento en el que va a estar el nuevo empleado");
+            System.out.println("");
+            System.out.println("Dime el numero de departamento en el que va a estar el nuevo empleado:");
+                    System.out.println( "+---------------------------------------------------------------------------------+\n");
             emp1.setDept_no(Integer.parseInt(sc.nextLine()));
             
             emp.CrearEmpleado(emp1);
             
     }
-   public void EliminarE() throws SQLException {
+   public void EliminarE() throws SQLException {// metodo para eliminar empleados
         Empleados emp = new Empleados();
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Dime el id del empleado que desea eliminar");
+        System.out.println("");
+        System.out.println("Dime el id del empleado que desea eliminar:");
+                System.out.println( "+---------------------------------------------------------------------------------+\n");
 
         emp.BorraE(Integer.parseInt(sc.nextLine()));
     }
