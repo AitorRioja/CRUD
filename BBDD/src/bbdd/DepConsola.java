@@ -38,6 +38,35 @@ public class DepConsola {
                 dep1 = dep.ListarUno(Integer.parseInt(sc.nextLine()));
                 System.out.println(dep1.getDept_nombre() + " | " + dep1.getDnombre()+ " | " + dep1.getLoc());
         }
-        dep1= dep.BuscarUno(Intege)
+    }
+    public void BuscarDepartamento () throws SQLException {
+            Departamentos dep = new Departamentos();
+            Departamento dep1= new Departamento();
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Dime el nombre del departamento que desea buscar para poder encontrarlo");
+            dep1 = dep.BuscarUnoD(sc.nextLine());
+            System.out.println(dep1.getDept_nombre() + " | " + dep1.getDnombre()+ " | " + dep1.getLoc() );
+            
+    }
+    public void CrearD() throws SQLException {
+        Departamentos dep = new Departamentos();
+        Departamento dep1 = new Departamento();
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Dime el id del departamento que desea crear");
+        dep1.setDept_nombre(Integer.parseInt(sc.nextLine()));
+        System.out.println("Dime el nombre del departamento que desea crear");
+        dep1.setDnombre(sc.nextLine());
+        System.out.println("Dime la localidad donde estara situado el departamento:");
+        dep1.setLoc(sc.nextLine());
+        dep.CreaDep(dep1);
+    }
+    public void EliminarD() throws SQLException {
+        Departamentos dep = new Departamentos();
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Dime el departamento que deseas eliminar");
+
+        dep.BorraD(Integer.parseInt(sc.nextLine()));
     }
 }

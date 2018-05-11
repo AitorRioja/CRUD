@@ -100,7 +100,7 @@ public class Departamentos {
        return dep;
     }
     
-    public Departamento BuscarUno(String dnombre) throws SQLException {
+    public Departamento BuscarUnoD(String dnombre) throws SQLException {
         Departamento dep = new Departamento();
        String sql = "Select * from departamentos where dnombre = ?";
        PreparedStatement sentencia = conexion.prepareStatement(sql);
@@ -132,5 +132,22 @@ public class Departamentos {
         filas = sentencia.executeUpdate();
         return filas;
     }
-    
+    public int CreaD(Departamento dep) throws SQLException {
+        int filas;
+        String sql = "INSERT INTO Departamentos VALUES (?,?,?)";
+        PreparedStatement sentencia = conexion.prepareStatement(sql);
+        sentencia.setInt(1, dep.getDept_nombre());
+        sentencia.setString(2, dep.getDnombre());
+        sentencia.setString(3, dep.getLoc());
+        filas = sentencia.executeUpdate();
+        return filas;
+    }
+     public int BorraD(int dep) throws SQLException {
+        String sql = "DELETE FROM Departamentos WHERE Emp_no=?;";
+        int filas;
+        PreparedStatement sentencia = conexion.prepareCall(sql);
+        sentencia.setInt(1, dep);
+        filas = sentencia.executeUpdate();
+        return filas;
+    }
 }

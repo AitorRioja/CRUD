@@ -125,6 +125,30 @@ public class Empleados {
         emp.setDept_no(rs.getInt(8));
         return emp;
      }
+     public int CrearEmpleado (Empleado emp) throws SQLException{
+        int filas;
+        String sql = "INSERT INTO empleados VALUES (?, ?, ?, ?, ?, ?, ?, ? )";
+        PreparedStatement sentencia = conexion.prepareStatement(sql);
+        sentencia.setInt(1, emp.getEmp_no());
+        sentencia.setString(2, emp.getApellido());
+        sentencia.setString(3, emp.getOficio());
+        sentencia.setInt(4, emp.getDirector());
+        sentencia.setDate(5, emp.getFecha_alta());
+        sentencia.setFloat(6, emp.getSalario());
+        sentencia.setFloat(7, emp.getComision());
+        sentencia.setInt(8, emp.getDept_no());
+        filas = sentencia.executeUpdate();
+        return filas;
+     }
+     public int BorraE(int emp) throws SQLException {
+        String sql = "DELETE FROM Empleados WHERE dep_nomb=?;";
+        int filas;
+        PreparedStatement sentencia = conexion.prepareCall(sql);
+        sentencia.setInt(1, emp);
+        filas = sentencia.executeUpdate();
+        return filas;
+    }
+     
 }
 
 

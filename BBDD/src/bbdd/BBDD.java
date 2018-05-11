@@ -33,6 +33,16 @@ public class BBDD {
             case 3:
                 emConex.BuscarEmp();
                 break;
+            case 4:
+                depConsole.BuscarDepartamento();
+            case 5:
+                emConex.CrearEmpleado();
+            case 6:
+                depConsole.CrearD();
+            case 7: 
+                emConex.EliminarE();
+            case 8:
+                depConsole.EliminarD();
         }
 
         
